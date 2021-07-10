@@ -17,7 +17,7 @@ pipeline {
       stage("test") {
         when {
           expression {
-            BRANCH_NAME == 'dev'  && CODE_CHANGES == true
+            BRANCH_NAME == 'master'  && CODE_CHANGES == true
           }
         }
         steps {
@@ -29,13 +29,5 @@ pipeline {
         echo "deploying  the app"
         }
       }   
-    }
-    post {
-      always {
-        //
-      }
-      failure {
-        //
-      }
     }
 }
