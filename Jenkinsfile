@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    parameters {
+        choice(name: 'VERSION',choices:['1','2'],description: '')
+        booleanParam(name: 'executeTests',defaultValue: true,description: '')
+    }
     environment {
       NEW_VERSION = '1.3.0'
     }
