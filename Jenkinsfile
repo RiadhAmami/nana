@@ -26,8 +26,9 @@ pipeline {
         steps {
           echo "deploying  the app"
           withCredentials([
-              usernamePassword(credentials: 'github-cred',)
+              usernamePassword(credentials: 'github-cred',usernameVariable: User,passwordVariable: pwd)
           ]){
+            sh "some script ${User} and ${pwd}"
           }
         }
 
