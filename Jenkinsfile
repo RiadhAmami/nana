@@ -1,8 +1,8 @@
-def gv
 pipeline {
     agent any
     environment {
       NEW_VERSION = '1.3.0'
+      server_cred = creadnetials('github-cred')
     }
     stages {
       stage("build"){
@@ -24,8 +24,13 @@ pipeline {
       }   
       stage("deploy"){
         steps {
-        echo "deploying  the app"
+          echo "deploying  the app"
+          withCredentials([
+              usernamePassword(credentials: 'github-cred',)
+          ]){
+          }
         }
+
       }   
     }
 }
