@@ -18,7 +18,7 @@ pipeline {
       stage("test") {
         when {
           expression {
-            env.BRANCH_NAME == 'master'  
+            params.executeTests
           }
         }
         steps {
