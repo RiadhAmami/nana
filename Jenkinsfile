@@ -19,14 +19,11 @@ pipeline {
       }
       stage("build"){
         steps {
-<<<<<<< HEAD
           echo "building the app"
-=======
           script{
           gv.buildJar()
           }
 
->>>>>>> c88d6106591ee7b4640bb526c77fe2febf99567d
         }
       }
       stage("test") {
@@ -41,17 +38,7 @@ pipeline {
       }   
       stage("deploy"){
         steps {
-<<<<<<< HEAD
           echo "deploying  the app"
-=======
-          echo 'deploying  the app'
-          withCredentials([
-              usernamePassword(credentialsId: 'github-cred',usernameVariable: 'User', passwordVariable: 'PWD')
-          ]){
-            echo PWD
-          }
->>>>>>> c88d6106591ee7b4640bb526c77fe2febf99567d
-        }
 
       }   
     }
