@@ -36,9 +36,10 @@ pipeline {
           echo "testing the app"
         }
       }   
-      stage("deploy"){
+      stage("dfploy"){
         steps {
-          echo "deployinthe app"
+          echo "deployihe app"
       }   
     }
+  }
 }
