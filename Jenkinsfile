@@ -20,7 +20,7 @@ pipeline {
         steps {
           echo "building the app"
           script{
-          gv.buildJar()
+          gv.buildImage()
           }
         }
       }
@@ -40,4 +40,4 @@ pipeline {
       }   
     }
   }
-j
+
