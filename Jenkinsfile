@@ -9,7 +9,6 @@ pipeline {
       NEW_VERSION = '1.3.0'
     }
     stages {
-
       stage("init"){
         steps {
           script {
@@ -23,7 +22,6 @@ pipeline {
           script{
           gv.buildJar()
           }
-
         }
       }
       stage("test") {
@@ -39,7 +37,8 @@ pipeline {
       stage("deploy"){
         steps {
           echo "deploying  the app"
-
       }   
     }
+  }
+}
 }
