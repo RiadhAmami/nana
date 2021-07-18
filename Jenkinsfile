@@ -9,7 +9,6 @@ pipeline {
       NEW_VERSION = '1.3.0'
     }
     stages {
-
       stage("init"){
         steps {
           script {
@@ -18,13 +17,17 @@ pipeline {
         }
       }
       stage("build"){
+        when {
+          expression {
+            BRANCH_NAME == 'master'
+          }
+        }
         steps {
           echo "building the app"
           script{
-          gv.buildJar()
-          gv.buildImage()
+            gv.buildJar()
+            gv.buildImage()
           }
-
         }
       }
       stage("test") {
@@ -36,11 +39,12 @@ pipeline {
         steps {
           echo "testing the app"
         }
-      }   
-      stage("dfploy"){
+      }
+      stage("deploy"){
         steps {
-          echo "deployihe app"
-      }   
+          echo "deploying  the app"
+        }
+      }
     }
   }
-}
+
