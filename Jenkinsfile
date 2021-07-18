@@ -17,6 +17,11 @@ pipeline {
         }
       }
       stage("build"){
+        when {
+          expression {
+            BRANCH_NAME == 'master'
+          }
+        }
         steps {
           echo "building the app"
           script{
@@ -38,7 +43,7 @@ pipeline {
       stage("deploy"){
         steps {
           echo "deploying  the app"
-      }   
+        }
+      }
     }
   }
-}
