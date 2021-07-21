@@ -1,4 +1,7 @@
+#!/usr/bin/env groovy
+@Library('jenkins-test')
 def gv
+
 pipeline {
     agent any
     parameters {
@@ -25,8 +28,8 @@ pipeline {
         steps {
           echo "building the app"
           script{
-            gv.buildJar()
-            gv.buildImage()
+            buildJar()
+            buildImage()
           }
         }
       }
