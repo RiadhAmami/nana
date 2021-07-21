@@ -29,7 +29,7 @@ pipeline {
           echo "building the app"
           script{
             buildJar()
-          BuildImage 'docker.galactechstudio.com/test:test'
+            BuildImage('docker.galactechstudio.com/test:test')
           }
         }
       }
