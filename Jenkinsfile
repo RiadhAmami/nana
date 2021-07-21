@@ -29,7 +29,9 @@ pipeline {
           echo "building the app"
           script{
             buildJar()
+            dockerLogin('https://docker.galactechstudio.com')
             BuildImage('docker.galactechstudio.com/test:test')
+            dockerPush('docker.galactechstudio.com/test:test')
           }
         }
       }
